@@ -1,0 +1,55 @@
+spring:
+  application:
+    name: client-test-store
+  cloud:
+    config:
+      failFast: true
+      discovery:
+        enabled: true
+      username: ${nephos.services.username}
+      password: ${nephos.services.password}
+      retry:
+        initialInterval: 5000
+        multiplier: 2.0
+        maxInterval: 60000
+        maxAttempts: 6
+logging:
+  level:
+    com.example.ct: DEBUG
+    
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 1500
+ribbon:
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1
+  ReadTimeout: 1500
+  ConnectTimeout: 150
+    
+---
+
+spring:
+  profiles: standalone
+
+  cloud:
+    config:
+      fail-fast: false
+      enabled: false  
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+ 
+---
+
+spring:
+  profiles: development
+
+  cloud:
+    config:
+      fail-fast: false
+      enabled: false  
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+ 
+ 
