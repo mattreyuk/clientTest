@@ -16,14 +16,14 @@ spring:
 logging:
   level:
     com.example.ct: DEBUG
-    
+
 hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 1500
 ribbon:
   MaxAutoRetries: 0
   MaxAutoRetriesNextServer: 1
   ReadTimeout: 1500
   ConnectTimeout: 150
-    
+
 ---
 
 spring:
@@ -32,24 +32,22 @@ spring:
   cloud:
     config:
       fail-fast: false
-      enabled: false  
+      enabled: false
 eureka:
   client:
     registerWithEureka: false
     fetchRegistry: false
- 
+
 ---
 
-spring:
-  profiles: development
-
-  cloud:
-    config:
-      fail-fast: false
-      enabled: false  
-eureka:
-  client:
-    registerWithEureka: false
-    fetchRegistry: false
- 
- 
+# spring:
+#   profiles: development
+#
+#   cloud:
+#     config:
+#       fail-fast: false
+#       enabled: false
+# eureka:
+#   client:
+#     registerWithEureka: false
+#     fetchRegistry: false
